@@ -1,0 +1,36 @@
+add_newline = false
+format = """
+$status\
+$hostname\
+$directory\
+$character"""
+
+right_format = """$all"""
+
+[line_break]
+disabled = true
+
+[directory]
+truncation_symbol = "…/"
+
+[status]
+symbol = '(fg:#d20f39)  '
+disabled = false
+
+[git_metrics]
+disabled = false
+
+[kubernetes]
+disabled = false
+format = '[$symbol$context( \($namespace\))]($style) '
+
+[gcloud]
+disabled = true
+
+[character]
+success_symbol = '[ INSERT ](bold bg:green fg:#11111b) ➜'
+error_symbol = '[ INSERT ](bold bg:green fg:#11111b) ➜'
+vimcmd_symbol = '[ NORMAL ](bold bg:blue fg:#11111b) ➜'
+vimcmd_replace_one_symbol = '[ REPLACE ](bold bg:cyan fg:#11111b) ➜'
+vimcmd_replace_symbol = '[ REPLACE ](bold bg:cyan fg:#11111b) ➜'
+vimcmd_visual_symbol = '[ VISUAL ](bold bg:purple fg:#11111b) ➜'
