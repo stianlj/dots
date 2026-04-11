@@ -1,0 +1,76 @@
+# === Editor/IDE ===
+.idea
+Session.vim
+dot_doom.d/*.elc
+
+# === Node.js ===
+package-lock.json
+node_modules
+
+# === Logs ===
+*.log
+ncmpcpp/error.log
+
+# === Autogenererte filer ===
+
+# Fish shell
+dot_config/fish/fishd.*
+dot_config/fish/conf.d/fish_frozen_key_bindings.fish
+dot_config/fish/fish_variables
+dot_config/fish/completions/
+dot_config/fish/functions/wt.fish
+
+# nushell
+dot_config/nushell/vendor/
+
+# Qt/qutebrowser
+dot_config/qutebrowser/qsettings/
+dot_config/qutebrowser/quickmarks
+dot_config/qutebrowser/autoconfig.yml
+dot_config/qutebrowser/private.py
+dot_config/qutebrowser/bookmarks/
+
+# DMS (Dank Material Shell)
+dot_config/hypr/dms/
+dot_config/niri/dms/
+
+# Emacs
+dot_config/emacs/eln-cache
+dot_config/emacs/elpa
+dot_config/emacs/straight
+dot_config/emacs/etc
+dot_config/emacs/var
+dot_config/emacs/custom-vars.el
+dot_config/emacs/local-variables.el
+
+# GTK
+dot_config/gtk-3.0/*
+!dot_config/gtk-3.0/gtk.css
+
+# Systemd
+dot_config/systemd/user/multi-user.target.wants
+
+# === Backup-filer ===
+*.bak
+*.backup*
+*_bak.*
+
+# === App-spesifikke ===
+dot_config/i3/config
+dot_config/polybar/mounts.ini
+dot_config/vifm/vifminfo*
+dot_config/vifm/vifm-help.txt
+dot_mutt/mailboxes
+dot_mutt/secrets
+termux-emacs.d/variables.el
+dot_config/lazygit/state.yml
+dot_config/tmux/plugins
+dot_config/tmux/resurrect
+dot_config/nushell/history.txt
+dot_config/yazi/plugins
+dot_config/nvim/lua/packer_compiled.lua
+dot_config/nvim/lazy-lock.json
+
+# === Rot-nivå filer ===
+/*.md
+!README.md
