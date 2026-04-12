@@ -56,22 +56,31 @@ Neovim also runs `chezmoi.commands.__edit`.watch()` on chezmoi source files, so 
 
 ## Niri
 
-Main config: `dot_config/niri/config.kdl`
+Main config: `dot_config/niri/config.kdl.tmpl`
 
-Uses `include` directives to pull in shared, machine-type, and Dank Material Shell configs. Switch between desktop and laptop by (un)commenting `include` lines in `config.kdl`:
+Uses `include` directives to pull in shared, machine-type, and Dank Material Shell configs. The `machineType` chezmoi variable (`"laptop"` or `"desktop"`) controls which type-specific includes are active:
 
 ```kdl
-// --laptop
-// include optional=true "./type-laptop/input.kdl"
-// include optional=true "./type-laptop/layout.kdl"
-// include optional=true "./type-laptop/spawns.kdl"
-// --desktop
+// Type-specific
+{{- if eq .machineType "laptop" }}
+include optional=true "./type-laptop/input.kdl"
+include optional=true "./type-laptop/layout.kdl"
+include optional=true "./type-laptop/spawns.kdl"
+{{- else if eq .machineType "desktop" }}
 include optional=true "./type-desktop/input.kdl"
 include optional=true "./type-desktop/output.kdl"
 include optional=true "./type-desktop/spawns.kdl"
+{{- end }}
 ```
 
-Machine-specific overrides go in per-host subdirs (toggled the same way).
+Set `machineType` in `chezmoi.toml`:
+
+```toml
+[data]
+  machineType = "desktop"
+```
+
+Machine-specific overrides go in per-host subdirs under `dot_config/niri/`.
 
 ## Neovim
 
