@@ -73,4 +73,3 @@ dot_config/nvim/lazy-lock.json
 
 # === Rot-nivå filer ===
 *.md
-!README.md
