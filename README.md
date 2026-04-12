@@ -34,11 +34,25 @@ After applying, install tmux plugins on first launch (or `prefix + I` via tpm). 
 ## Workflow
 
 ```sh
-chezmoi diff       # preview changes before applying
-chezmoi apply      # write source state to ~
+chezmoi diff        # preview changes before applying
+chezmoi apply       # write source state to ~
 chezmoi edit <file> # open a target file in $EDITOR
-chezmoi cd         # shell into the source directory
+chezmoi cd          # shell into the source directory
 ```
+
+Neovim also runs `chezmoi.commands.__edit`.watch()` on chezmoi source files, so editing them directly in `~/.local/share/chezmoi/` in Neovim will auto-sync changes to the target.
+
+## Bin scripts
+
+`bin/` contains executable scripts that chezmoi installs to `~/bin/`:
+
+| Script | Purpose |
+|---|---|
+| `sesh-sessionizer` | fzf-based session picker and repo cloner for sesh (supports GitHub/GitLab) |
+| `tmux-update-env` | syncs environment variables into tmux after client reconnect (called by tmux hook) |
+| `github-status-notifications.sh` | waybar module — GitHub notification count |
+| `github-status-pr.sh` | waybar module — GitHub PR review count |
+| `pomodoro-status.sh` | waybar module — pomodoro timer status |
 
 ## Niri
 
@@ -70,6 +84,8 @@ Machine-specific overrides go in per-host subdirs (toggled the same way).
 - **Leader:** `<Space>` (both leader and local leader)
 - **Legacy:** `lua/plugins-legacy/` holds older configs still referenced by telescope and dap
 
+Formatting config: `.stylua.toml` sets Lua to 2-space indent with spaces. `.editorconfig` enforces LF line endings and final newlines. Neovim's `.luarc.json` configures lua_ls for the plugin structure.
+
 ## Tmux
 
 - Prefix: `C-Space` (not the default `C-b`)
@@ -77,6 +93,7 @@ Machine-specific overrides go in per-host subdirs (toggled the same way).
 - Plugins managed by tpm (vendored in `plugins/`)
 - Smart pane navigation (`C-h/j/k/l`) with vim awareness
 - Session picker bound to `prefix + K`
+- `tmux-update-env` auto-syncs env vars (SSH agent, Wayland, API keys) on client-attached
 
 ## Chezmoi filename prefixes
 
