@@ -124,7 +124,6 @@ vim.lsp.config("yamlls", {
 
 vim.lsp.enable("ansiblels")
 vim.lsp.enable("bashls")
-vim.lsp.enable("copiloto")
 vim.lsp.enable("jsonls")
 vim.lsp.enable("docker_compose_language_service")
 vim.lsp.enable("emmet_ls")
