@@ -104,6 +104,16 @@ Formatting config: `.stylua.toml` sets Lua to 2-space indent with spaces. `.edit
 - Session picker bound to `prefix + K`
 - `tmux-update-env` auto-syncs env vars (SSH agent, Wayland, API keys) on client-attached
 
+## Environment variables
+
+The following environment variables must be set externally (e.g. in `~/.profile`, `~/.config/environment.d/`, or a secrets manager):
+
+| Variable | Purpose |
+|---|---|
+| `OBSIDIAN_VAULT_DIR` | Path to Obsidian vault (used by obsidian.nvim) |
+| `SESH_DIRECTORIES` | Colon-separated directories for sesh-sessionizer to scan |
+| `VAULT_ADDR` | HashiCorp Vault server address |
+
 ## Chezmoi filename prefixes
 
 These prefixes control how files are installed on the target system. Do not replace them with literal dots.
