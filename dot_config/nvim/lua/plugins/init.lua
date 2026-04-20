@@ -1,6 +1,5 @@
 return {
   "dstein64/vim-startuptime",
-  "wakatime/vim-wakatime",
   "tpope/vim-repeat",
   "tpope/vim-eunuch",
   "tpope/vim-sleuth",
