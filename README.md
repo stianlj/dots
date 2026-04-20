@@ -9,17 +9,15 @@ Managed with [chezmoi](https://www.chezmoi.io/). Source state lives in `~/.local
 | Role | Tool |
 |---|---|
 | Shell | Fish (vi keys) |
-| Terminal | Ghostty |
+| Terminal | Kitty and ghostty |
 | Multiplexer | tmux (prefix: `C-Space`) |
 | Editor | Neovim |
 | Prompt | Starship |
-| CD | zoxide (`cd`) |
-| Env | direnv |
 | History | atuin |
 | Session | sesh |
-| Idle/lock | stasis + hyprlock |
+| Browser | Qutebrowser |
 | Compositor | niri |
-| Theme | Catppuccin Mocha |
+| Theme | (Mostly) Catppuccin Mocha |
 
 ## Setup
 
@@ -132,6 +130,6 @@ See `.chezmoiignore` (chezmoi skips) and `.gitignore` (git skips). Notable entri
 - `fish_variables`, `fish/completions/` — machine-generated
 - `tmux/plugins/`, `tmux/resurrect` — vendored / runtime state
 - `yazi/plugins/` — third-party package installs
-- `niri/dms/`, `hypr/dms/` — Dank Material Shell generated files
+- `niri/dms/` — Dank Material Shell generated files
 - `nvim/lazy-lock.json`, `nvim/lua/packer_compiled.lua` — auto-generated
 - `qutebrowser/` bookmarks, quickmarks, private config
