@@ -16,7 +16,6 @@ include optional=true "./type-laptop/spawns.kdl"
 {{- else if eq .machineType "desktop" }}
 include optional=true "./type-desktop/input.kdl"
 include optional=true "./type-desktop/output.kdl"
-include optional=true "./type-desktop/spawns.kdl"
 {{- end }}
 
 // Machine-specific
