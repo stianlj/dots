@@ -33,9 +33,7 @@ layout {
     }
     default-column-width { proportion 0.20; }
     focus-ring {
-        width 1
-        active-gradient from="#80c8ff" to="#c7ff7f" angle=45 in="oklch longer hue"
-        inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
+        off
     }
     border {
         off

@@ -8,6 +8,22 @@ window-rule {
 }
 
 window-rule {
+  match is-focused=false
+  opacity 0.8
+  shadow {
+    on
+    inactive-color "#1D1D1FEB"
+    spread 0
+    softness 0
+    offset x=0 y=0
+    draw-behind-window true
+  }
+  background-effect {
+    blur true
+  }
+}
+
+window-rule {
     match app-id=r#"firefox$"# title="^Picture-in-Picture$"
     match app-id=r#"mpv$"#
     open-floating true
