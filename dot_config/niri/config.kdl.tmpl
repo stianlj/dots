@@ -12,7 +12,6 @@ include optional=true "./dms/windowrules.kdl"
 {{- if eq .machineType "laptop" }}
 include optional=true "./type-laptop/input.kdl"
 include optional=true "./type-laptop/layout.kdl"
-include optional=true "./type-laptop/spawns.kdl"
 {{- else if eq .machineType "desktop" }}
 include optional=true "./type-desktop/input.kdl"
 include optional=true "./type-desktop/output.kdl"
