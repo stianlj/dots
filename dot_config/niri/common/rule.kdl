@@ -21,6 +21,7 @@ window-rule {
   }
   background-effect {
     blur true
+    saturation 3
   }
 }
 

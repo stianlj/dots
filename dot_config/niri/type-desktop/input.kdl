@@ -25,4 +25,5 @@ input {
     }
     warp-mouse-to-focus
     focus-follows-mouse max-scroll-amount="0%"
+    workspace-auto-back-and-forth
 }
