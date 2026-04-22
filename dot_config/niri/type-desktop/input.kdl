@@ -18,6 +18,7 @@ input {
     trackpoint {
         off
     }
+
     focus-follows-mouse max-scroll-amount="10%"
     workspace-auto-back-and-forth
 }
