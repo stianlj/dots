@@ -68,6 +68,7 @@ dot_config/tmux/plugins
 dot_config/tmux/resurrect
 dot_config/nushell/history.txt
 dot_config/yazi/plugins
+dot_config/yazi/package.toml
 dot_config/nvim/lua/packer_compiled.lua
 dot_config/nvim/lazy-lock.json
 
