@@ -24,6 +24,7 @@ alias cat='bat'
 
 abbr --add --global s 'sesh-sessionizer'
 abbr --add --global gh 'clonizer'
+abbr --add --global av 'a -b -v'
 
 starship init fish | source
 zoxide init --cmd cd fish | source
