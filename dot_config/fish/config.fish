@@ -9,6 +9,7 @@ set -gx VOLTA_FEATURE_PNPM 1
 
 test -d "$HOME/.local/bin"; and set PATH "$HOME/.local/bin" $PATH
 test -d "$HOME/.npm-global/bin"; and set PATH "$HOME/.npm-global/bin" $PATH
+test -d "$HOME/go/bin"; and set PATH "$HOME/go/bin" $PATH
 test -d "$VOLTA_HOME/bin"; and set PATH "$VOLTA_HOME/bin" $PATH
 
 bind yy fish_clipboard_copy
