@@ -1,0 +1,74 @@
+# a — Quick ansible-playbook wrapper for my own Ansible setup.
+# Provides a simple interface for running playbooks with optional host and tag filtering,
+# as well as common flags for sudo, vault passwords, check mode, and diff mode.
+#
+# Usage:
+#   a [flags] [hostname] [tags]
+#
+#   hostname  Optional. Host from inventory. If omitted, runs on all hosts.
+#             Tab-completes from Ansible inventory.
+#   tags      Comma-separated string, e.g. "packages,cosmic,desktop".
+#             If omitted, all roles/tags run.
+#
+# Flags:
+#   -b       --ask-become-pass (sudo password)
+#   -v       --ask-vault-pass (vault password)
+#   -c       --check (dry run)
+#   -d       --diff (show changes)
+#   -p FILE  Specify playbook (default: {{ .ansibleDefaultPlaybook }})
+#   -h       Show this help
+#
+# Examples:
+#   a                           # Full setup, all hosts
+#   a laptop-1                  # Full setup, only laptop-1
+#   a laptop-1 packages         # Only packages tag on laptop-1
+#   a packages,cosmic           # packages + cosmic tags, all hosts
+#   a -b -v workstation-1 snapper,autofs  # With sudo and vault passwords
+#   a -p playbooks/maintainance/system-maintenance.yaml mirrors
+#   a -c desktop                # Dry run on desktop
+
+function a --description "Quick ansible-playbook wrapper"
+    set -l repo {{ .ansibleRepo }}
+    set -l playbook {{ .ansibleDefaultPlaybook }}
+    set -l limit_host ""
+    set -l tags_arg ""
+    set -l extra_flags
+
+    argparse -n a 'b' 'v' 'c' 'd' 'p=' 'h/help' -- $argv
+    or return 1
+
+    set -q _flag_h; and begin
+        sed -n '/^# /{s/^# //;p}' (status filename) | sed -n '/^a —/,/^ *$/p'
+        return 0
+    end
+
+    set -q _flag_p; and set playbook $_flag_p
+    set -q _flag_b; and set -a extra_flags --ask-become-pass
+    set -q _flag_v; and set -a extra_flags --ask-vault-pass
+    set -q _flag_c; and set -a extra_flags --check
+    set -q _flag_d; and set -a extra_flags --diff
+
+    if test (count $argv) -ge 1
+        set limit_host $argv[1]
+    end
+    if test (count $argv) -ge 2
+        set tags_arg $argv[2]
+    end
+
+    if test ! -d "$repo"
+        echo "a: repo not found at $repo" >&2
+        return 1
+    end
+
+    set -l cmd ansible-playbook -i {{ .ansibleInventory }} $playbook
+
+    test -n "$limit_host"; and set -a cmd --limit $limit_host
+    test -n "$tags_arg"; and set -a cmd --tags $tags_arg
+    for f in $extra_flags
+        set -a cmd $f
+    end
+
+    echo "▶ ansible-setup: $cmd"
+    cd $repo
+    $cmd
+end

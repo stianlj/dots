@@ -1,0 +1,22 @@
+set -l hosts
+
+function __a_get_hosts
+    set -l repo {{ .ansibleRepo }}
+    set hosts
+    if test -d "$repo/{{ .ansibleHostVars }}"
+        for f in $repo/{{ .ansibleHostVars }}/*.yaml
+            set -l host (basename $f .yaml)
+            set -a hosts $host
+        end
+    end
+end
+
+complete -c a -s b -d "Ask become pass (sudo)"
+complete -c a -s v -d "Ask vault pass"
+complete -c a -s c -d "Dry run (--check)"
+complete -c a -s d -d "Show diff (--diff)"
+complete -c a -s p -d "Playbook path" -r -a "
+    (find {{ .ansibleRepo }}/{{ .ansiblePlaybooksDir }} -name '*.yaml' -printf '%P\n' | sort)
+"
+complete -c a -s h -d "Show help"
+complete -c a -x -a "(__a_get_hosts; string join \n \$hosts)"

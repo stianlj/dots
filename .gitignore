@@ -17,7 +17,8 @@ ncmpcpp/error.log
 dot_config/fish/fishd.*
 dot_config/fish/conf.d/fish_frozen_key_bindings.fish
 dot_config/fish/fish_variables
-dot_config/fish/completions/
+dot_config/fish/completions/*
+!dot_config/fish/completions/a.fish.tmpl
 dot_config/fish/functions/wt.fish
 
 # nushell
