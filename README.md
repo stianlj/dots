@@ -1,6 +1,6 @@
 # dotfiles
 
-> Previously: [stianlj/dotfiles](https://github.com/stianlj/dotfiles/)
+> **Unmaintained.** New dotfiles live at codeberg.org: [stianlj/dotfiles](https://codeberg.org/stianlj/dotfiles)
 
 Managed with [chezmoi](https://www.chezmoi.io/). Source state lives in `~/.local/share/chezmoi` and is applied to the target system with `chezmoi apply`.
 
